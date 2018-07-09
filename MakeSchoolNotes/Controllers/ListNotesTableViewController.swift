@@ -22,12 +22,12 @@ class ListNotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.barTintColor = .red
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.navigationBar.barTintColor = .blue
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
-        self.tableView.separatorColor = .red
-        
+        navigationController?.navigationBar.tintColor = .blue
+        self.tableView.separatorColor = .blue
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
         
         self.tableView.beginUpdates()
         self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
@@ -60,7 +60,6 @@ class ListNotesTableViewController: UITableViewController {
         if editingStyle == .delete {
             let noteToDelete = notes[indexPath.row]
             CoreDataHelper.delete(note: noteToDelete)
-            
             notes = CoreDataHelper.retrieveNotes()
         }
     }

@@ -16,7 +16,6 @@ class DisplayNoteViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -32,7 +31,8 @@ class DisplayNoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
+        self.navigationItem.leftBarButtonItem?.tintColor = .white
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
