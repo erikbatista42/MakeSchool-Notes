@@ -10,7 +10,9 @@ import UIKit
 
 class ListNotesTableViewController: UITableViewController {
     
-    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {}
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+        notes = CoreDataHelper.retrieveNotes()
+    }
     
     var notes = [Note]() {
         didSet {
@@ -20,6 +22,8 @@ class ListNotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notes = CoreDataHelper.retrieveNotes()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
